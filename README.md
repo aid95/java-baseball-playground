@@ -1,26 +1,27 @@
 ## [NEXTSTEP 플레이그라운드의 미션 진행 과정](https://github.com/next-step/nextstep-docs/blob/master/playground/README.md)
 
 ---
-## 학습 효과를 높이기 위해 추천하는 미션 진행 방법
+### 기능 구현
+- [ ] 게임은 랜덤한 3자리 숫자를 생성한다.
+- [ ] 플레이어는 3자리 숫자를 입력할 수 있다.
+- [ ] 컴퓨터가 생성한 랜덤한 3자리 숫자와 플레이어가 입력한 숫자를 비교해 결과를 출력한다.
+    - [ ] 오답시 결과에는 스트라이크, 볼, 낫싱를 통해 힌트를 출력한다.
+- [ ] 숫자를 모두 맞히기 전까지 위 2-3 과정을 반복한다.
+- [ ] 모든 위치의 숫자가 맞으면 게임을 종료한다.
+    - [ ] 게임이 종료되면 플레이어는 게임 재시작(1)과 프로그램 종료(2)를 선택할 수 있다.
 
 ---
-1. 피드백 강의 전까지 미션 진행 
-> 피드백 강의 전까지 혼자 힘으로 미션 진행. 미션을 진행하면서 하나의 작업이 끝날 때 마다 add, commit
-> 예를 들어 다음 숫자 야구 게임의 경우 0, 1, 2단계까지 구현을 완료한 후 push
+### 역할 모델
+#### SlotSet
+1. SlotSet은 3개의 Slot를 보관한다.
+2. SlotSet은 다른 SlotSet과 비교해 스트라이크, 볼, 낫싱을 검출한다.
 
-![mission baseball](https://raw.githubusercontent.com/next-step/nextstep-docs/master/playground/images/mission_baseball.png)
+#### Slot
+1. 값 객체로 정수를 보관한다.
+2. Slot은 한자리 정수를 가진다.
+   1. 문자, 문자열, 2자리 이상 정수를 입력받을 시 예외를 발생한다.
 
----
-2. 피드백 앞 단계까지 미션 구현을 완료한 후 피드백 강의를 학습한다.
-
----
-3. Git 브랜치를 master 또는 main으로 변경한 후 피드백을 반영하기 위한 새로운 브랜치를 생성한 후 처음부터 다시 미션 구현을 도전한다.
-
-```
-git branch -a // 모든 로컬 브랜치 확인
-git checkout master // 기본 브랜치가 master인 경우
-git checkout main // 기본 브랜치가 main인 경우
-
-git checkout -b 브랜치이름
-ex) git checkout -b apply-feedback
-```
+#### Baseball
+1. Baseball은 게임을 진행한다.
+2. Baseball은 랜덤한 SlotSet을 관리한다.
+3. Baseball은 사용자로 부터 입력을 받는다.
