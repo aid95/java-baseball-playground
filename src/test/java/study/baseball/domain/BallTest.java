@@ -14,7 +14,7 @@ public class BallTest {
     Ball ball1 = new Ball(1);
     Ball ball2 = new Ball(1);
 
-    boolean result = ball1.equals(ball2);
+    boolean result = ball1.isMatch(ball2);
 
     assertThat(result).isTrue();
   }
