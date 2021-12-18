@@ -32,13 +32,13 @@ public class Balls {
     }
 
     private boolean validate() {
-        return ballsNum != 3;
+        return this.balls.size() != 3;
     }
 
     public int matchStrike(Balls other) {
         int result = 0;
         for (int i = 0; i < ballsNum; i++) {
-            if (isBallEquals(other, i, i)) {
+            if (isBallMatch(other, i, i)) {
                 result++;
             }
         }
@@ -50,7 +50,7 @@ public class Balls {
         for (int i = 0; i < ballsNum; i++) {
             for (int j = 0; j < ballsNum; j++) {
                 if (i == j) continue;
-                if (isBallEquals(other, i, j)) {
+                if (isBallMatch(other, i, j)) {
                     result++;
                 }
             }
@@ -58,7 +58,7 @@ public class Balls {
         return result;
     }
 
-    private boolean isBallEquals(Balls other, int pos, int otherPos) {
-        return this.balls.get(pos).equals(other.balls.get(otherPos));
+    private boolean isBallMatch(Balls other, int pos, int otherPos) {
+        return this.balls.get(pos).isMatch(other.balls.get(otherPos));
     }
 }

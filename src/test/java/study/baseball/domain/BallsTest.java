@@ -41,7 +41,8 @@ public class BallsTest {
             new Balls(Arrays.asList(
                 new Ball(1),
                 new Ball(1),
-                new Ball(2))); // [1, 2]
+                new Ball(2),
+                new Ball(3))); // [1, 2]
         }).withMessageMatching("3");
     }
 
